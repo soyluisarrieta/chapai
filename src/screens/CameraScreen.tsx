@@ -28,14 +28,12 @@ export default function App() {
       if (!(await RNFS.exists(RNFS.DocumentDirectoryPath + '/Model'))) {
         await RNFS.mkdir(RNFS.DocumentDirectoryPath + '/Model');
         await RNFS.copyFileAssets(
-          'Model/mobilenet_v1_1.0_224_quant.tflite',
-          RNFS.DocumentDirectoryPath +
-            '/Model/mobilenet_v1_1.0_224_quant.tflite',
+          'Model/plant-disease.tflite',
+          RNFS.DocumentDirectoryPath + '/Model/plant-disease.tflite',
         );
         await RNFS.copyFileAssets(
-          'Model/labels_mobilenet_quant_v1_224.txt',
-          RNFS.DocumentDirectoryPath +
-            '/Model/labels_mobilenet_quant_v1_224.txt',
+          'Model/plant-disease.txt',
+          RNFS.DocumentDirectoryPath + '/Model/plant-disease.txt',
         );
         await RNFS.copyFileAssets(
           'example.jpg',
@@ -63,8 +61,8 @@ export default function App() {
       // load model
       tflite.loadModel(
         {
-          modelPath: '/Model/mobilenet_v1_1.0_224_quant.tflite',
-          labelsPath: '/Model/labels_mobilenet_quant_v1_224.txt',
+          modelPath: '/Model/plant-disease.tflite',
+          labelsPath: '/Model/plant-disease.txt',
         },
         (err: Error, res: any) => {
           if (err) {
@@ -92,7 +90,6 @@ export default function App() {
         flash: 'off',
       });
       console.log(photo.path);
-
       setPhotoPath(`file://${photo.path}`);
     } catch (e) {
       console.log(e);
