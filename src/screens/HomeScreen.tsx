@@ -9,6 +9,9 @@ export default function HomeScreen() {
         style={styles.logo}
       />
       <Text style={styles.welcomeText}>¡Bienvenido a nuestra app!</Text>
+      <Text style={styles.welcomeText}>
+        Somos un equipo de investigadores pertenecientes al SENA Ipiales
+      </Text>
     </View>
   );
 }

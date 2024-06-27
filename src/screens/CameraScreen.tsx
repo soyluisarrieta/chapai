@@ -10,16 +10,17 @@ import {
 import React, {useEffect, useRef, useState} from 'react';
 import RNFS from 'react-native-fs';
 import {Tflite} from 'react-native-tflite-classification';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 let tflite = new Tflite();
 
-export default function App() {
+export default function App({navigation}: any) {
   const camera = useRef<Camera>(null);
   const [photoPath, setPhotoPath] = useState<string>();
   const [imagen, setImagen] = useState<string>();
   const [cameraPermission, setCameraPermission] = useState<string>();
-  const [result, setResult] = useState<string>();
+  const [result, setResult] = useState<any>([]);
   useEffect(() => {
     // check if this is the first time app is being opened. If it is,
     // move the starter model and image from android assets folder to internal
@@ -91,6 +92,10 @@ export default function App() {
       });
       console.log(photo.path);
       setPhotoPath(`file://${photo.path}`);
+      // Esperar 3 segundos antes de ejecutar el método de clasificación
+      setTimeout(() => {
+        classifyPicture(photo.path);
+      }, 3000);
     } catch (e) {
       console.log(e);
     }
@@ -105,17 +110,17 @@ export default function App() {
 
     checkFileExists();
   }, [imagen]);
-  const classifyPicture = () => {
+  const classifyPicture = (photo: string) => {
     /**
      * If the user has a picture selected, classify it using the selected tflite
      * model.
      */
-    if (photoPath != null) {
+    if (photo != null) {
       // run the image against the loaded model
       try {
         tflite.runModelOnImage(
           {
-            path: photoPath,
+            path: photo,
             numResults: 5,
             threshold: 0,
           },
@@ -123,8 +128,8 @@ export default function App() {
             if (err) {
               console.log(err + '\n' + res);
             } else {
-              setResult(res);
-              console.log(res);
+              setResult(res[0]);
+              console.log(res[0]);
             }
           },
         );
@@ -141,81 +146,157 @@ export default function App() {
     return <Text>Loading...</Text>;
   }
 
+  const resetCamera = () => {
+    setPhotoPath('');
+    setPhotoPath('');
+    setResult([]);
+  };
+
   return (
-    <View>
-      <Camera
-        ref={camera}
-        style={[styles.camera, styles.photoAndVideoCamera]}
-        device={cameraDevice}
-        isActive
-        photo
-      />
-      <TouchableOpacity style={styles.btn} onPress={handleTakePhoto}>
-        <Text style={styles.btnText}>Take Photo</Text>
-      </TouchableOpacity>
-      {photoPath && <Image style={styles.image} source={{uri: photoPath}} />}
-      <TouchableOpacity style={styles.btn} onPress={classifyPicture}>
-        <Text style={styles.btnText}>classify Picture</Text>
-      </TouchableOpacity>
-      <View>
-        <FlatList
-          data={result}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
-            <View style={styles.resultItem}>
-              <Text style={styles.resultText}>
-                {item.label}: {item.confidence.toFixed(2)}
-              </Text>
-            </View>
-          )}
-          ListEmptyComponent={<Text style={styles.noResults}>No results</Text>}
-        />
+    <View style={styles.container}>
+      <View style={styles.cameraContainer}>
+        {photoPath ? (
+          <Image source={{uri: photoPath}} style={styles.previewImage} />
+        ) : (
+          <Camera
+            ref={camera}
+            style={styles.camera}
+            device={cameraDevice}
+            isActive
+            photo
+          />
+        )}
+        {!photoPath && (
+          <TouchableOpacity
+            style={styles.takePhotoButton}
+            onPress={handleTakePhoto}>
+            <Text style={styles.buttonText}>Tomar Foto</Text>
+          </TouchableOpacity>
+        )}
       </View>
+
+      {photoPath && (
+        <View style={styles.resultContainer}>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.resetButton} onPress={resetCamera}>
+              <Text style={styles.buttonText}>Volver a la Cámara</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.resultTitle}>Enfermedad Detectada:</Text>
+          <View style={styles.resultItem}>
+            <Text style={styles.resultLabel}>
+              {result.label === 'Tizón tardío de la papa' ? (
+                <View style={styles.buttonContainer}>
+                  <TouchableOpacity
+                    style={styles.classifyButton}
+                    onPress={() => navigation.navigate('Gota')}>
+                    <Text style={styles.buttonText}>{result.label}</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                <View>
+                  <Text>{result.label}</Text>
+                </View>
+              )}
+            </Text>
+            <Text style={styles.resultConfidence}>
+              {result.length === 0 ? (
+                <View>
+                  <Text>--- Procesando ----</Text>
+                </View>
+              ) : (
+                <View>
+                  <Text>
+                    Confianza: {(result.confidence * 100).toFixed(2)}%
+                  </Text>
+                </View>
+              )}
+            </Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+  },
+  cameraContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '70%',
+    marginBottom: 20,
+  },
   camera: {
-    height: 460,
-    width: '92%',
+    width: '100%',
+    height: '100%',
+  },
+  takePhotoButton: {
+    position: 'absolute',
+    bottom: 20,
     alignSelf: 'center',
+    backgroundColor: '#007AFF',
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 25,
   },
-  photoAndVideoCamera: {
-    height: 360,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginTop: 10,
   },
-  btn: {
-    backgroundColor: '#63995f',
-    margin: 13,
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderRadius: 8,
+  classifyButton: {
+    backgroundColor: '#4CAF50',
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    marginRight: 10,
   },
-  btnText: {
-    color: '#ffffff',
+  resetButton: {
+    backgroundColor: '#f44336',
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+  },
+  previewImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
+  },
+  resultContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  resultTitle: {
     fontSize: 20,
-    textAlign: 'center',
-  },
-  image: {
-    marginHorizontal: 16,
-    paddingTop: 8,
-    width: 80,
-    height: 80,
+    fontWeight: 'bold',
+    marginVertical: 10,
   },
   resultItem: {
+    backgroundColor: '#f0f0f0',
     padding: 10,
-    marginVertical: 5,
-    backgroundColor: '#f9f9f9',
-    borderColor: '#ddd',
-    borderWidth: 1,
+    marginVertical: 10,
     borderRadius: 5,
+    alignItems: 'center',
+    width: '100%',
   },
-  resultText: {
+  resultLabel: {
     fontSize: 16,
+    marginBottom: 5,
   },
-  noResults: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 20,
+  resultConfidence: {
+    fontSize: 14,
+    color: '#555',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
   },
 });

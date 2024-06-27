@@ -27,16 +27,21 @@ export default function PermissionScreen({
   }, [cameraPermissionStatus, navigation]);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to{'\n'}Vision Camera.</Text>
-      <View style={styles.permissionsContainer}>
-        {cameraPermissionStatus !== 'granted' && (
-          <Text style={styles.permissionText}>
-            Vision Camera needs{' '}
-            <Text style={styles.bold}>Camera permission</Text>.{' '}
-            <Text style={styles.hyperlink} onPress={requestCameraPermission}>
-              <Button title="Grant" onPress={requestCameraPermission} />
-            </Text>
+    <View style={styles.contenedor}>
+      <Text style={styles.bienvenida}>Bienvenido a{'\n'}Chapai Camera.</Text>
+      <View style={styles.contenedorPermisos}>
+        {cameraPermissionStatus !== 'granted' ? (
+          <Text style={styles.textoPermiso}>
+            Chapai Camera necesita{' '}
+            <Text style={styles.negrita}>permiso para la cámara</Text>.{' '}
+            <Button
+              title="Conceder Permiso"
+              onPress={requestCameraPermission}
+            />
+          </Text>
+        ) : (
+          <Text style={styles.textoPermiso}>
+            ¡Permiso de cámara concedido! Ahora puedes usar la cámara.
           </Text>
         )}
       </View>
@@ -45,33 +50,29 @@ export default function PermissionScreen({
 }
 
 const styles = StyleSheet.create({
-  welcome: {
-    fontSize: 38,
-    fontWeight: 'bold',
-    maxWidth: '80%',
-  },
-  banner: {
-    position: 'absolute',
-    opacity: 0.4,
-    bottom: 0,
-    left: 0,
-  },
-  container: {
+  contenedor: {
     flex: 1,
-    backgroundColor: 'white',
-    ...[1, 1, 1, 1],
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
-  permissionsContainer: {
-    marginTop: 15 * 2,
-  },
-  permissionText: {
-    fontSize: 17,
-  },
-  hyperlink: {
-    color: '#007aff',
+  bienvenida: {
+    fontSize: 24,
     fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
   },
-  bold: {
+  contenedorPermisos: {
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 10,
+  },
+  textoPermiso: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  negrita: {
     fontWeight: 'bold',
   },
 });
