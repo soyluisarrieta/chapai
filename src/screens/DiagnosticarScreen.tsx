@@ -57,7 +57,7 @@ export default function DiagnosticarScreen({navigation}: any) {
           style={styles.image}
         />
         <Image
-          source={require('../assets/images/Late_Blight_329.jpg')}
+          source={require('../assets/images/late_blight_329.jpg')}
           style={styles.image}
         />
       </View>
