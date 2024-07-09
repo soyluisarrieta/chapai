@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "clean:android": "cd android && gradlew.bat clean && cd ../"
+    "clean:android": "cd android && gradlew.bat clean && cd ../",
+    "build:android": "cd android && gradlew.bat build && cd ../"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.20",
