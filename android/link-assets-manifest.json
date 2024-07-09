@@ -1,0 +1,69 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/images/chapai_img.jpg",
+      "sha1": "1d68f14f5cb3078dbbbb8867f3f7dcbed63b934f"
+    },
+    {
+      "path": "src/assets/images/escoba1.jpg",
+      "sha1": "51199e90cb6c235292e694e2b70f65c067354911"
+    },
+    {
+      "path": "src/assets/images/escoba2.jpg",
+      "sha1": "672f51e5223c2661dd6cccb4470332f807d67508"
+    },
+    {
+      "path": "src/assets/images/gota.jpg",
+      "sha1": "b55d174986f6b285103fa3f21575176e8c28fdf1"
+    },
+    {
+      "path": "src/assets/images/gota2.jpg",
+      "sha1": "0ad2b1733f338553bd2c60f6160fe1749ceb72e5"
+    },
+    {
+      "path": "src/assets/images/late_blight_329.jpg",
+      "sha1": "b3627e405179450d66ed399192d429941725b562"
+    },
+    {
+      "path": "src/assets/images/paratrioza.jpg",
+      "sha1": "b8a55511c311d0e68c2c83db7990d9c7ec6e6724"
+    },
+    {
+      "path": "src/assets/images/paratrioza_huevos.jpg",
+      "sha1": "d1cf71d64d513333b3fc62d6062a7f68319aaa8d"
+    },
+    {
+      "path": "src/assets/images/paratrioza_larva.jpg",
+      "sha1": "dd3d696fb71d6b80e8ca0a8865b75f0bd2d4e081"
+    },
+    {
+      "path": "src/assets/images/paratrioza_lupa.jpg",
+      "sha1": "17775a35a86edce39bec9a753b6e902149e5eefe"
+    },
+    {
+      "path": "src/assets/images/paratrioza_vector.jpg",
+      "sha1": "034791a7e24ce50a3105aa55075a6b14462f1fea"
+    },
+    {
+      "path": "src/assets/images/pmp_hojas.jpg",
+      "sha1": "7d7b252eb917edf37f5c87f92e6e1bb83fd33b47"
+    },
+    {
+      "path": "src/assets/images/pmp_papa.jpg",
+      "sha1": "4399abb38c5a44ffa8aef6fb33ccf508b09399f6"
+    },
+    {
+      "path": "src/assets/images/pmp_tallo2.jpg",
+      "sha1": "77bf983b8be644e25f0bbe27adc18578c1795124"
+    },
+    {
+      "path": "src/assets/images/pmp_tallos.jpg",
+      "sha1": "7e6eceff65d9cd80bd9c0e7c9764bcbcae4f7e85"
+    },
+    {
+      "path": "src/assets/noimage.png",
+      "sha1": "84d9e12131ec6651387cd80757d332197b4b9ed8"
+    }
+  ]
+}

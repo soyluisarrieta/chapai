@@ -14,6 +14,22 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-chapai_-chapai_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-chapai_-chapai_Tests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		283F4E4D6299489C80A3090A /* chapai_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A918D49677B4093A6C28773 /* chapai_img.jpg */; };
+		2B32F6E0256E4F7BA3BA45EA /* escoba1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFB4F2179804BFDAC2794EA /* escoba1.jpg */; };
+		B0190171CE4E45B49E352509 /* escoba2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 56E05A0A252D419CB9815723 /* escoba2.jpg */; };
+		28D0BFC11BA5458E99058BF9 /* gota.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 519429CE828348FF8EAB50AB /* gota.jpg */; };
+		6AD8B1F9440943D18842151F /* gota2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FF2DF9496F74FE08CD4AB8F /* gota2.jpg */; };
+		AF5B1640F2194C90ADDF70B8 /* late_blight_329.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12D53A7A682F4E00948280C1 /* late_blight_329.jpg */; };
+		792DEB4C364540188FAA6ED1 /* paratrioza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9C2B595E4DF434D98A1629E /* paratrioza.jpg */; };
+		75E414C550844B2794DAEFAD /* paratrioza_huevos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66BEE161AA97419BBDEAFACE /* paratrioza_huevos.jpg */; };
+		5FF3F7CA43BE4899BDD85FDA /* paratrioza_larva.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83C55366A57849B0BE0E6D46 /* paratrioza_larva.jpg */; };
+		5C5A4EFB6AA74C099A27B3D0 /* paratrioza_lupa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7473A011FC49DBBA938F68 /* paratrioza_lupa.jpg */; };
+		E7EF4C31E9514786ACF84BDA /* paratrioza_vector.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 521921CC07AA4786AF79C1D1 /* paratrioza_vector.jpg */; };
+		D37D58CEA79D467386EED0AC /* pmp_hojas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2CF251EDCBD497B9CBD7F8E /* pmp_hojas.jpg */; };
+		5A62CC1423FA4746A8D1D3F5 /* pmp_papa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 927CBDBAEB274A5183A059CD /* pmp_papa.jpg */; };
+		25B47740F5054A46A561A871 /* pmp_tallo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7223C781E604B40BB745826 /* pmp_tallo2.jpg */; };
+		80AA6924055A4437AD79000F /* pmp_tallos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F542471820C84E63A547BF4F /* pmp_tallos.jpg */; };
+		79B37AFBA6B948EDB896019E /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 49ACFE83727A4DE4A2F9EF6D /* noimage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +52,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = chapai_/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = chapai_/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = chapai_/main.m; sourceTree = "<group>"; };
-	    13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = chapai_/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = chapai_/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-chapai_-chapai_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chapai_-chapai_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-chapai_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chapai_.debug.xcconfig"; path = "Target Support Files/Pods-chapai_/Pods-chapai_.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-chapai_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chapai_.release.xcconfig"; path = "Target Support Files/Pods-chapai_/Pods-chapai_.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +61,22 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = chapai_/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-chapai_-chapai_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chapai_-chapai_Tests.release.xcconfig"; path = "Target Support Files/Pods-chapai_-chapai_Tests/Pods-chapai_-chapai_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		5A918D49677B4093A6C28773 /* chapai_img.jpg */ = {isa = PBXFileReference; name = "chapai_img.jpg"; path = "../src/assets/images/chapai_img.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AEFB4F2179804BFDAC2794EA /* escoba1.jpg */ = {isa = PBXFileReference; name = "escoba1.jpg"; path = "../src/assets/images/escoba1.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		56E05A0A252D419CB9815723 /* escoba2.jpg */ = {isa = PBXFileReference; name = "escoba2.jpg"; path = "../src/assets/images/escoba2.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		519429CE828348FF8EAB50AB /* gota.jpg */ = {isa = PBXFileReference; name = "gota.jpg"; path = "../src/assets/images/gota.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FF2DF9496F74FE08CD4AB8F /* gota2.jpg */ = {isa = PBXFileReference; name = "gota2.jpg"; path = "../src/assets/images/gota2.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		12D53A7A682F4E00948280C1 /* late_blight_329.jpg */ = {isa = PBXFileReference; name = "late_blight_329.jpg"; path = "../src/assets/images/late_blight_329.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A9C2B595E4DF434D98A1629E /* paratrioza.jpg */ = {isa = PBXFileReference; name = "paratrioza.jpg"; path = "../src/assets/images/paratrioza.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66BEE161AA97419BBDEAFACE /* paratrioza_huevos.jpg */ = {isa = PBXFileReference; name = "paratrioza_huevos.jpg"; path = "../src/assets/images/paratrioza_huevos.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		83C55366A57849B0BE0E6D46 /* paratrioza_larva.jpg */ = {isa = PBXFileReference; name = "paratrioza_larva.jpg"; path = "../src/assets/images/paratrioza_larva.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF7473A011FC49DBBA938F68 /* paratrioza_lupa.jpg */ = {isa = PBXFileReference; name = "paratrioza_lupa.jpg"; path = "../src/assets/images/paratrioza_lupa.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		521921CC07AA4786AF79C1D1 /* paratrioza_vector.jpg */ = {isa = PBXFileReference; name = "paratrioza_vector.jpg"; path = "../src/assets/images/paratrioza_vector.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C2CF251EDCBD497B9CBD7F8E /* pmp_hojas.jpg */ = {isa = PBXFileReference; name = "pmp_hojas.jpg"; path = "../src/assets/images/pmp_hojas.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		927CBDBAEB274A5183A059CD /* pmp_papa.jpg */ = {isa = PBXFileReference; name = "pmp_papa.jpg"; path = "../src/assets/images/pmp_papa.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7223C781E604B40BB745826 /* pmp_tallo2.jpg */ = {isa = PBXFileReference; name = "pmp_tallo2.jpg"; path = "../src/assets/images/pmp_tallo2.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F542471820C84E63A547BF4F /* pmp_tallos.jpg */ = {isa = PBXFileReference; name = "pmp_tallos.jpg"; path = "../src/assets/images/pmp_tallos.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		49ACFE83727A4DE4A2F9EF6D /* noimage.png */ = {isa = PBXFileReference; name = "noimage.png"; path = "../src/assets/noimage.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +156,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				8E194D63C1A945D4B13D22E8 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +182,30 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		8E194D63C1A945D4B13D22E8 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				5A918D49677B4093A6C28773 /* chapai_img.jpg */,
+				AEFB4F2179804BFDAC2794EA /* escoba1.jpg */,
+				56E05A0A252D419CB9815723 /* escoba2.jpg */,
+				519429CE828348FF8EAB50AB /* gota.jpg */,
+				3FF2DF9496F74FE08CD4AB8F /* gota2.jpg */,
+				12D53A7A682F4E00948280C1 /* late_blight_329.jpg */,
+				A9C2B595E4DF434D98A1629E /* paratrioza.jpg */,
+				66BEE161AA97419BBDEAFACE /* paratrioza_huevos.jpg */,
+				83C55366A57849B0BE0E6D46 /* paratrioza_larva.jpg */,
+				BF7473A011FC49DBBA938F68 /* paratrioza_lupa.jpg */,
+				521921CC07AA4786AF79C1D1 /* paratrioza_vector.jpg */,
+				C2CF251EDCBD497B9CBD7F8E /* pmp_hojas.jpg */,
+				927CBDBAEB274A5183A059CD /* pmp_papa.jpg */,
+				F7223C781E604B40BB745826 /* pmp_tallo2.jpg */,
+				F542471820C84E63A547BF4F /* pmp_tallos.jpg */,
+				49ACFE83727A4DE4A2F9EF6D /* noimage.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +302,22 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				283F4E4D6299489C80A3090A /* chapai_img.jpg in Resources */,
+				2B32F6E0256E4F7BA3BA45EA /* escoba1.jpg in Resources */,
+				B0190171CE4E45B49E352509 /* escoba2.jpg in Resources */,
+				28D0BFC11BA5458E99058BF9 /* gota.jpg in Resources */,
+				6AD8B1F9440943D18842151F /* gota2.jpg in Resources */,
+				AF5B1640F2194C90ADDF70B8 /* late_blight_329.jpg in Resources */,
+				792DEB4C364540188FAA6ED1 /* paratrioza.jpg in Resources */,
+				75E414C550844B2794DAEFAD /* paratrioza_huevos.jpg in Resources */,
+				5FF3F7CA43BE4899BDD85FDA /* paratrioza_larva.jpg in Resources */,
+				5C5A4EFB6AA74C099A27B3D0 /* paratrioza_lupa.jpg in Resources */,
+				E7EF4C31E9514786ACF84BDA /* paratrioza_vector.jpg in Resources */,
+				D37D58CEA79D467386EED0AC /* pmp_hojas.jpg in Resources */,
+				5A62CC1423FA4746A8D1D3F5 /* pmp_papa.jpg in Resources */,
+				25B47740F5054A46A561A871 /* pmp_tallo2.jpg in Resources */,
+				80AA6924055A4437AD79000F /* pmp_tallos.jpg in Resources */,
+				79B37AFBA6B948EDB896019E /* noimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
