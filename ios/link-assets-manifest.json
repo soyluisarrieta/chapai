@@ -2,6 +2,14 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/icons/icomoon.ttf",
+      "sha1": "46fafd5625fc198a72b88e042e2a64ffa5c0fee3"
+    },
+    {
+      "path": "src/assets/icons/selection.json",
+      "sha1": "c222b745c7975ac58c7e8b52e8ffdcb63770f0bb"
+    },
+    {
       "path": "src/assets/images/chapai_img.jpg",
       "sha1": "1d68f14f5cb3078dbbbb8867f3f7dcbed63b934f"
     },

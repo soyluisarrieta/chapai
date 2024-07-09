@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Camera, CameraPermissionStatus} from 'react-native-vision-camera';
@@ -9,11 +9,11 @@ import CameraScreen from '../screens/CameraScreen';
 import HomeScreen from '../screens/HomeScreen';
 import {Routes} from './Routes';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import DiagnosticarScreen from '../screens/DiagnosticarScreen';
 import GotaScreen from '../screens/GotaScreen';
 import ParatriozaScreen from '../screens/ParatriozaScreen';
-import Ionicons from 'react-native-vector-icons/MaterialIcons';
+import IconComponent from '../components/IconComponent';
 
 const HomeStack = createNativeStackNavigator<Routes>();
 
@@ -86,24 +86,16 @@ export default function RootStackNavigator() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = focused ? 'leaf' : 'leaf';
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-list' : 'ios-list-outline';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+          tabBarIcon: ({focused, ...props}) => {
+            const name = route.name + (!focused ? '-outline' : '');
+            return <IconComponent name={name.toLocaleLowerCase()} {...props} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}>
-        <Tab.Screen name="Inicio" component={HomeStackScreen} />
-        <Tab.Screen name="Camara" component={PermissionStackScreen} />
-        <Tab.Screen name="Diagnostico" component={DiagnosticarStackScreen} />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="Camera" component={PermissionStackScreen} />
+        <Tab.Screen name="Diagnostic" component={DiagnosticarStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
