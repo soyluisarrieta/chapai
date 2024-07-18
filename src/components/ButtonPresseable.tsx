@@ -15,6 +15,7 @@ interface ButtonTextProps extends PressableProps {
   fullWidth?: boolean;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  asChild?: boolean;
   children: React.ReactNode;
 }
 
@@ -24,6 +25,7 @@ export default function ButtonText({
   fullWidth = false,
   style,
   textStyle,
+  asChild = false,
   children,
   ...props
 }: ButtonTextProps) {
@@ -44,7 +46,7 @@ export default function ButtonText({
 
   return (
     <Pressable style={buttonStyles} {...props}>
-      <Text style={textStyles}>{children}</Text>
+      {asChild ? children : <Text style={textStyles}>{children}</Text>}
     </Pressable>
   );
 }

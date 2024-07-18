@@ -1,6 +1,5 @@
 import {
   Alert,
-  FlatList,
   Image,
   StyleSheet,
   Text,
@@ -10,9 +9,11 @@ import {
 import React, {useEffect, useRef, useState} from 'react';
 import RNFS from 'react-native-fs';
 import {Tflite} from 'react-native-tflite-classification';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
+import ButtonText from '../components/ButtonPresseable';
+import IconComponent from '../components/IconComponent';
+import {COLORS} from '../theme';
 let tflite = new Tflite();
 
 export default function App({navigation}: any) {
@@ -154,33 +155,75 @@ export default function App({navigation}: any) {
 
   return (
     <View style={styles.container}>
+      <Text
+        style={{
+          width: 300,
+          color: 'white',
+          fontSize: 28,
+          alignSelf: 'center',
+          textAlign: 'center',
+          marginTop: 70,
+        }}>
+        {photoPath
+          ? 'Planta escaneada'
+          : 'Toma una foto para escanear la planta'}
+      </Text>
       <View style={styles.cameraContainer}>
         {photoPath ? (
           <Image source={{uri: photoPath}} style={styles.previewImage} />
         ) : (
-          <Camera
-            ref={camera}
-            style={styles.camera}
-            device={cameraDevice}
-            isActive
-            photo
-          />
+          <>
+            <View
+              style={{
+                width: '80%',
+                height: '54%',
+                minWidth: 330,
+                minHeight: 400,
+                overflow: 'hidden',
+                borderRadius: 30,
+                elevation: 5,
+              }}>
+              <Camera
+                ref={camera}
+                style={styles.camera}
+                device={cameraDevice}
+                isActive
+                photo
+              />
+            </View>
+            <Image
+              source={require('../assets/images/scan_square.png')}
+              style={styles.scanSquare}
+            />
+          </>
         )}
         {!photoPath && (
-          <TouchableOpacity
+          <ButtonText
+            variant="secondary"
             style={styles.takePhotoButton}
-            onPress={handleTakePhoto}>
-            <Text style={styles.buttonText}>Tomar Foto</Text>
-          </TouchableOpacity>
+            onPress={handleTakePhoto}
+            size="icon"
+            asChild>
+            <View style={{width: '100%', height: '100%', elevation: 3}}>
+              <Image
+                source={require('../assets/images/scan_button.png')}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: 999,
+                }}
+              />
+            </View>
+          </ButtonText>
         )}
       </View>
 
       {photoPath && (
         <View style={styles.resultContainer}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.resetButton} onPress={resetCamera}>
-              <Text style={styles.buttonText}>Volver a la Cámara</Text>
-            </TouchableOpacity>
+            <ButtonText variant="secondary" onPress={resetCamera}>
+              Volver a la Cámara
+            </ButtonText>
           </View>
           <Text style={styles.resultTitle}>Enfermedad Detectada:</Text>
           <View style={styles.resultItem}>
@@ -195,18 +238,18 @@ export default function App({navigation}: any) {
                 </View>
               ) : (
                 <View>
-                  <Text>{result.label}</Text>
+                  <Text style={{color: 'white'}}>{result.label}</Text>
                 </View>
               )}
             </Text>
             <Text style={styles.resultConfidence}>
               {result.length === 0 ? (
                 <View>
-                  <Text>--- Procesando ----</Text>
+                  <Text style={{color: 'white'}}>--- Procesando ----</Text>
                 </View>
               ) : (
                 <View>
-                  <Text>
+                  <Text style={{color: 'white'}}>
                     Confianza: {(result.confidence * 100).toFixed(2)}%
                   </Text>
                 </View>
@@ -222,29 +265,37 @@ export default function App({navigation}: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
+    backgroundColor: COLORS.primary.dark,
   },
   cameraContainer: {
-    position: 'relative',
     width: '100%',
-    height: '70%',
-    marginBottom: 20,
+    flex: 1,
+    position: 'relative',
+    alignItems: 'center',
+    paddingTop: 20,
   },
   camera: {
-    width: '100%',
     height: '100%',
+    width: '100%',
+  },
+  scanSquare: {
+    width: '70%',
+    height: '70%',
+    minWidth: 290,
+    minHeight: 440,
+    objectFit: 'contain',
+    position: 'absolute',
+    top: 0,
+    zIndex: 10,
+    alignSelf: 'center',
   },
   takePhotoButton: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent',
     position: 'absolute',
     bottom: 20,
-    alignSelf: 'center',
-    backgroundColor: '#007AFF',
-    borderRadius: 10,
-    paddingVertical: 12,
-    paddingHorizontal: 25,
+    flexDirection: 'row',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -266,8 +317,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   previewImage: {
-    width: '100%',
-    height: '100%',
+    width: '80%',
+    height: '95%',
     borderRadius: 10,
   },
   resultContainer: {
@@ -277,12 +328,12 @@ const styles = StyleSheet.create({
   resultTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginVertical: 10,
+    marginTop: 40,
+    color: COLORS.primary.actived,
   },
   resultItem: {
-    backgroundColor: '#f0f0f0',
     padding: 10,
-    marginVertical: 10,
+    marginBottom: 20,
     borderRadius: 5,
     alignItems: 'center',
     width: '100%',
