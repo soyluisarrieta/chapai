@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import React from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {COLORS} from '../theme';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: COLORS.primary.normal,
   },
   welcomeText: {
     fontSize: 16,
