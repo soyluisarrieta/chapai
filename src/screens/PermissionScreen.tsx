@@ -1,25 +1,31 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Pressable,
+} from 'react-native';
 import React, {useEffect, useState, useCallback} from 'react';
 import {Linking} from 'react-native';
-
 import {Camera, CameraPermissionStatus} from 'react-native-vision-camera';
-//import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import IconComponent from '../components/IconComponent';
+import {COLORS} from '../theme';
 
 export default function PermissionScreen({
   navigation,
 }: any): React.ReactElement {
   const [cameraPermissionStatus, setCameraPermissionStatus] =
     useState<CameraPermissionStatus>('not-determined');
-  const requestCameraPermission = useCallback(async () => {
-    console.log('Requesting camera permission...');
-    const permission = await Camera.requestCameraPermission();
-    console.log(`Camera permission status: ${permission}`);
 
+  const requestCameraPermission = useCallback(async () => {
+    const permission = await Camera.requestCameraPermission();
     if (permission === 'denied') {
       await Linking.openSettings();
     }
     setCameraPermissionStatus(permission);
   }, []);
+
   useEffect(() => {
     if (cameraPermissionStatus === 'granted') {
       navigation.replace('CameraScreen', {name: 'CameraScreen'});
@@ -27,52 +33,70 @@ export default function PermissionScreen({
   }, [cameraPermissionStatus, navigation]);
 
   return (
-    <View style={styles.contenedor}>
-      <Text style={styles.bienvenida}>Bienvenido a{'\n'}Chapai Camera.</Text>
-      <View style={styles.contenedorPermisos}>
+    <View style={styles.container}>
+      <IconComponent name="camera" color={COLORS.primary.light} size={100} />
+      <Text style={styles.welcome}>Habilitar el acceso a la cámara</Text>
+      <View style={styles.permissionContainer}>
         {cameraPermissionStatus !== 'granted' ? (
-          <Text style={styles.textoPermiso}>
-            Chapai Camera necesita{' '}
-            <Text style={styles.negrita}>permiso para la cámara</Text>.{' '}
-            <Button
-              title="Conceder Permiso"
-              onPress={requestCameraPermission}
-            />
+          <Text style={styles.permissionText}>
+            ChapAI necesita tu permiso para acceder a la cámara.
           </Text>
         ) : (
-          <Text style={styles.textoPermiso}>
+          <Text style={styles.permissionText}>
             ¡Permiso de cámara concedido! Ahora puedes usar la cámara.
           </Text>
+        )}
+        {cameraPermissionStatus !== 'granted' && (
+          <Pressable style={styles.button} onPress={requestCameraPermission}>
+            <Text style={{textAlign: 'center', color: COLORS.primary.dark}}>
+              Permitir
+            </Text>
+          </Pressable>
         )}
       </View>
     </View>
   );
 }
 
+const {width} = Dimensions.get('window');
+
 const styles = StyleSheet.create({
-  contenedor: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.primary.dark,
+    padding: 20,
   },
-  bienvenida: {
-    fontSize: 24,
+  welcome: {
+    fontSize: 28,
     fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+  },
+  permissionContainer: {
+    width: width * 0.7,
+    paddingVertical: 15,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  permissionText: {
+    fontSize: 17,
     textAlign: 'center',
     marginBottom: 20,
+    color: 'rgba(255,255,255,0.7)',
   },
-  contenedorPermisos: {
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 10,
-  },
-  textoPermiso: {
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  negrita: {
+  bold: {
     fontWeight: 'bold',
+    color: '#000',
+  },
+  button: {
+    width: '100%',
+    maxWidth: 250,
+    backgroundColor: COLORS.primary.actived,
+    padding: 20,
+    borderRadius: 999,
+    marginTop: 20,
   },
 });
