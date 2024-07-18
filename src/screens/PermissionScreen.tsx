@@ -1,16 +1,10 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  Pressable,
-} from 'react-native';
+import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useEffect, useState, useCallback} from 'react';
 import {Linking} from 'react-native';
 import {Camera, CameraPermissionStatus} from 'react-native-vision-camera';
 import IconComponent from '../components/IconComponent';
 import {COLORS} from '../theme';
+import ButtonText from '../components/ButtonPresseable';
 
 export default function PermissionScreen({
   navigation,
@@ -47,11 +41,12 @@ export default function PermissionScreen({
           </Text>
         )}
         {cameraPermissionStatus !== 'granted' && (
-          <Pressable style={styles.button} onPress={requestCameraPermission}>
-            <Text style={{textAlign: 'center', color: COLORS.primary.dark}}>
-              Permitir
-            </Text>
-          </Pressable>
+          <ButtonText
+            variant="actived"
+            fullWidth
+            onPress={requestCameraPermission}>
+            Permitir
+          </ButtonText>
         )}
       </View>
     </View>
@@ -90,13 +85,5 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: 'bold',
     color: '#000',
-  },
-  button: {
-    width: '100%',
-    maxWidth: 250,
-    backgroundColor: COLORS.primary.actived,
-    padding: 20,
-    borderRadius: 999,
-    marginTop: 20,
   },
 });
