@@ -1,6 +1,9 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Camera, CameraPermissionStatus} from 'react-native-vision-camera';
@@ -20,7 +23,7 @@ const HomeStack = createNativeStackNavigator<Routes>();
 function DiagnosticarStackScreen(): React.ReactElement {
   return (
     <GestureHandlerRootView style={styles.root}>
-      <HomeStack.Navigator>
+      <HomeStack.Navigator screenOptions={{headerShown: false}}>
         <HomeStack.Screen name="Diagnosticos" component={DiagnosticarScreen} />
         <HomeStack.Screen name="Gota" component={GotaScreen} />
         <HomeStack.Screen name="Paratrioza" component={ParatriozaScreen} />
@@ -32,7 +35,7 @@ function DiagnosticarStackScreen(): React.ReactElement {
 function HomeStackScreen(): React.ReactElement {
   return (
     <GestureHandlerRootView style={styles.root}>
-      <HomeStack.Navigator>
+      <HomeStack.Navigator screenOptions={{headerShown: false}}>
         <HomeStack.Screen name="Chapai" component={HomeScreen} />
         <HomeStack.Screen name="CameraScreen" component={CameraScreen} />
       </HomeStack.Navigator>
@@ -92,6 +95,7 @@ export default function RootStackNavigator() {
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
+          headerShown: false,
         })}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Camera" component={PermissionStackScreen} />
