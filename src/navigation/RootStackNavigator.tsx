@@ -1,9 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {
-  BottomTabNavigationOptions,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Camera, CameraPermissionStatus} from 'react-native-vision-camera';
@@ -12,11 +9,12 @@ import CameraScreen from '../screens/CameraScreen';
 import HomeScreen from '../screens/HomeScreen';
 import {Routes} from './Routes';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import DiagnosticarScreen from '../screens/DiagnosticarScreen';
 import GotaScreen from '../screens/GotaScreen';
 import ParatriozaScreen from '../screens/ParatriozaScreen';
 import IconComponent from '../components/IconComponent';
+import {COLORS} from '../theme';
 
 const HomeStack = createNativeStackNavigator<Routes>();
 
@@ -89,13 +87,20 @@ export default function RootStackNavigator() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, ...props}) => {
-            const name = route.name + (!focused ? '-outline' : '');
-            return <IconComponent name={name.toLocaleLowerCase()} {...props} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: COLORS.primary.actived,
+          tabBarInactiveTintColor: COLORS.primary.dark,
           headerShown: false,
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            height: 60,
+            backgroundColor: COLORS.primary.normal,
+          },
+          tabBarIcon: ({...props}) => {
+            props.size = 30;
+            return (
+              <IconComponent name={route.name.toLocaleLowerCase()} {...props} />
+            );
+          },
         })}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Camera" component={PermissionStackScreen} />
