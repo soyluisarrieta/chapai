@@ -155,6 +155,7 @@ export default function App({navigation}: any) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.decoration} />
       <Text
         style={{
           width: 300,
@@ -266,6 +267,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.primary.dark,
+  },
+  decoration: {
+    width: 500,
+    height: 500,
+    borderRadius: 250,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    position: 'absolute',
+    top: -250,
+    transform: 'rotate(60deg)',
   },
   cameraContainer: {
     width: '100%',
