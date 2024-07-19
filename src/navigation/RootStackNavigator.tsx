@@ -21,10 +21,18 @@ const HomeStack = createNativeStackNavigator<Routes>();
 function DiagnosticarStackScreen(): React.ReactElement {
   return (
     <GestureHandlerRootView style={styles.root}>
-      <HomeStack.Navigator screenOptions={{headerShown: false}}>
-        <HomeStack.Screen name="Diagnosticos" component={DiagnosticarScreen} />
+      <HomeStack.Navigator>
+        <HomeStack.Screen
+          options={{headerShown: false}}
+          name="Diagnosticos"
+          component={DiagnosticarScreen}
+        />
         <HomeStack.Screen name="Gota" component={GotaScreen} />
-        <HomeStack.Screen name="Paratrioza" component={ParatriozaScreen} />
+        <HomeStack.Screen
+          name="Paratrioza"
+          component={ParatriozaScreen}
+          options={{headerShadowVisible: false}}
+        />
       </HomeStack.Navigator>
     </GestureHandlerRootView>
   );
