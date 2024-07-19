@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     height: 500,
     borderRadius: 250,
     alignSelf: 'center',
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    backgroundColor: 'rgba(0,0,0,0.3)',
     position: 'absolute',
     top: -250,
     transform: 'rotate(60deg)',

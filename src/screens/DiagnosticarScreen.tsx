@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
     paddingHorizontal: 20,
-    color: 'rgba(255,255,255, 0.8)',
+    color: 'rgba(255,255,255, 0.9)',
   },
   imageGrid: {
     flexDirection: 'row',

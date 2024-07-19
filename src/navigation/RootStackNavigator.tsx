@@ -21,7 +21,12 @@ const HomeStack = createNativeStackNavigator<Routes>();
 function DiagnosticarStackScreen(): React.ReactElement {
   return (
     <GestureHandlerRootView style={styles.root}>
-      <HomeStack.Navigator>
+      <HomeStack.Navigator
+        screenOptions={{
+          headerStyle: {backgroundColor: COLORS.primary.dark},
+          headerTitleStyle: {color: 'white'},
+          headerTintColor: COLORS.primary.actived,
+        }}>
         <HomeStack.Screen
           options={{headerShown: false}}
           name="Diagnosticos"

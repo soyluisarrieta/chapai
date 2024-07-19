@@ -1,5 +1,6 @@
 import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
 import React from 'react';
+import {COLORS} from '../theme';
 
 export default function ParatriozaScreen() {
   return (
@@ -79,19 +80,22 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingHorizontal: 20,
     paddingVertical: 30,
+    backgroundColor: '#e9f3de',
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: 'black',
+    color: COLORS.primary.normal,
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 300,
     marginBottom: 20,
     borderRadius: 10,
+    borderWidth: 10,
+    borderColor: 'rgba(255,255,255,0.3)',
   },
   section: {
     flexDirection: 'row',
@@ -106,10 +110,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
-    color: 'black',
+    color: COLORS.primary.dark,
   },
   sectionText: {
     fontSize: 16,
     lineHeight: 24,
+    color: 'rgba(0,0,0,0.8)',
   },
 });

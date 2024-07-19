@@ -1,17 +1,16 @@
 import {View, Text, ScrollView, Image, StyleSheet} from 'react-native';
 import React from 'react';
+import {COLORS} from '../theme';
 
 export default function GotaScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.heading}>Información sobre el Tizón Tardío</Text>
-      <View style={styles.sectionImage}>
-        <Image
-          source={require('../assets/images/gota2.jpg')}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      </View>
+      <Image
+        source={require('../assets/images/gota2.jpg')}
+        style={styles.image}
+        resizeMode="cover"
+      />
       <View style={styles.section}>
         <Text style={styles.sectionHeading}>Ciclo de vida y propagación</Text>
         <Text style={styles.sectionText}>
@@ -60,35 +59,40 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingHorizontal: 20,
     paddingVertical: 30,
+    backgroundColor: '#e9f3de',
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: 'black',
-  },
-  sectionImage: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    color: COLORS.primary.normal,
   },
   image: {
-    width: '60%',
+    width: '100%',
     height: 300,
     marginBottom: 20,
     borderRadius: 10,
+    borderWidth: 10,
+    borderColor: 'rgba(255,255,255,0.3)',
   },
   section: {
+    alignItems: 'flex-start',
     marginBottom: 20,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 10,
   },
   sectionHeading: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10,
-    color: 'black',
+    marginBottom: 5,
+    color: COLORS.primary.dark,
   },
   sectionText: {
     fontSize: 16,
     lineHeight: 24,
+    color: 'rgba(0,0,0,0.8)',
   },
 });
